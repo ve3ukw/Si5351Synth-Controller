@@ -75,10 +75,22 @@ Re-applies a saved `saved_settings.json` from the command line — no GUI requir
 ```
 python si5351_cli.py                        # use port saved in settings
 python si5351_cli.py COM10                  # override port
-python si5351_cli.py COM10 --settings my.cfg
+python si5351_cli.py COM10 --settings my.json
+python si5351_cli.py COM10 --settings saved_settings.cfg   # legacy format
 python si5351_cli.py --list-ports
 python si5351_cli.py --baud 9600 COM10
 ```
+
+Single-channel modifications (the full config is transferred with one channel overridden):
+
+```
+python si5351_cli.py COM10 --channel 2 --frequency 14100000 --enable
+python si5351_cli.py COM10 --channel 0 --drive 8 --permanent
+python si5351_cli.py COM10 --channel 1 --disable --permanent
+python si5351_cli.py       --channel 2 --frequency 14100000 --permanent  # update file only, no board
+```
+
+`--permanent` writes the modified settings back to the JSON file after a successful transfer. If no port is available it updates the file without transferring.
 
 ---
 

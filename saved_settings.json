@@ -1,0 +1,55 @@
+{
+  "window": {
+    "x": 52,
+    "y": 52
+  },
+  "ref_freq": 10000000.0,
+  "ref_corr": 0.0,
+  "input_src": 1,
+  "channels": [
+    {
+      "channel": 0,
+      "freq": 24000000.0,
+      "enabled": 1,
+      "invert": 0,
+      "drive": "2"
+    },
+    {
+      "channel": 1,
+      "freq": 10000000.0,
+      "enabled": 0,
+      "invert": 0,
+      "drive": "2"
+    },
+    {
+      "channel": 2,
+      "freq": 10000000.0,
+      "enabled": 0,
+      "invert": 0,
+      "drive": "2"
+    },
+    {
+      "channel": 3,
+      "freq": 10000000.0,
+      "enabled": 0,
+      "invert": 0,
+      "drive": "2"
+    },
+    {
+      "channel": 4,
+      "freq": 10000000.0,
+      "enabled": 0,
+      "invert": 0,
+      "drive": "2"
+    },
+    {
+      "channel": 5,
+      "freq": 10000000.0,
+      "enabled": 0,
+      "invert": 0,
+      "drive": "2"
+    }
+  ],
+  "port": "COM10",
+  "baud": "2400"
+}

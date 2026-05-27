@@ -402,6 +402,7 @@ class Si5351App:
                 "input_src": INPUT_SRC_MAP[self.input_src.get()],
                 "channels": [
                     {
+                        "channel": i,
                         "freq":    self.ch_freq[i].get(),
                         "enabled": self.ch_enabled[i].get(),
                         "invert":  self.ch_invert[i].get(),
@@ -428,11 +429,13 @@ class Si5351App:
             self.ref_corr.set(float(data["ref_corr"]))
             self.input_src.set("External Ref." if data["input_src"] == 1
                                else "Onboard Crystal")
-            for i, ch in enumerate(data.get("channels", [])[:6]):
-                self.ch_freq[i].set(float(ch["freq"]))
-                self.ch_enabled[i].set(int(ch["enabled"]))
-                self.ch_invert[i].set(int(ch["invert"]))
-                self.ch_drive[i].set(str(int(float(ch["drive"]))))
+            for ch in data.get("channels", []):
+                i = int(ch.get("channel", -1))
+                if 0 <= i < 6:
+                    self.ch_freq[i].set(float(ch["freq"]))
+                    self.ch_enabled[i].set(int(ch["enabled"]))
+                    self.ch_invert[i].set(int(ch["invert"]))
+                    self.ch_drive[i].set(str(int(float(ch["drive"]))))
             self.serial_port.set(data.get("port", ""))
             baud = str(data.get("baud", BAUD_DEFAULT))
             if baud in BAUD_CHOICES:
