@@ -29,6 +29,24 @@
         face="Liberation Sans, sans-serif"><font style="font-size: 14pt"
           size="4">Version 0.6, August 2021 &middot; updated for Python&nbsp;3 / Windows&nbsp;11, May 2026<br>
           by Bert-VE2ZAZ, (http://ve2zaz.net)</font></font></p>
+    <h2 class="western">About this fork</h2>
+    <p style="margin-bottom: 0in; line-height: 100%"><font
+        face="Liberation Sans, sans-serif">This software is a fork of
+        the original VE2ZAZ Si5351 Synthesizer Configurator
+        (http://ve2zaz.net), maintained by VE3UKW. All credit for the
+        original concept, hardware design, and core software goes to
+        Bert-VE2ZAZ. The following changes were made in this fork:
+        full rewrite of the UI using Python 3 tkinter ttk widgets for
+        a native Windows 10/11 appearance; baud rate changed from 1200
+        to 2400 to prevent the LGT8F328P "bootloader touch"; selectable
+        baud rate persisted in settings; a <b>Read Board</b> button
+        that loads the configuration stored in the board's EEPROM back
+        into the UI; settings file converted to JSON format
+        (saved_settings.json) for human readability and direct
+        editability; a command-line tool (si5351_cli.py) for scripted
+        transfers and single-channel overrides; and Arduino sketch
+        comments translated to English with a new '?' read-back
+        command added.</font></p>
     <h2 class="western">Description</h2>
     <p style="margin-bottom: 0in; line-height: 100%"><font
         face="Liberation Sans, sans-serif">This software allows to

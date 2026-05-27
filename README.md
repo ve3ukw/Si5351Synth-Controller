@@ -1,8 +1,20 @@
-# VE2ZAZ Si5351 Synthesizer Board — Software and Firmware
+# VE2ZAZ Si5351 Synthesizer Board — Software and Firmware (VE3UKW fork)
 
 Python 3 GUI and CLI tools for configuring a Si5351A/B/C synthesizer chip supervised by an Arduino-compatible board (Arduino Nano or LGT8F328P clone). Once configured, the Arduino reloads the Si5351 from EEPROM at every power-up.
 
-Original software by Bert-VE2ZAZ (http://ve2zaz.net). Updated for Python 3 / Windows 11, May 2026.
+Original software by Bert-VE2ZAZ (http://ve2zaz.net). This fork is maintained by VE3UKW.
+
+---
+
+## Changes in this fork
+
+- **Python 3 / Windows 11**: UI fully rewritten using tkinter ttk widgets for a native look. Baud rate changed from 1200 to 2400 to prevent the LGT8F328P "bootloader touch" on Windows 11.
+- **LGT8F328P support**: tested and working with the LGT8F328P Arduino clone ("USB Serial Device" in Windows Device Manager — no extra driver needed).
+- **Selectable baud rate**: dropdown in the UI, persisted in settings.
+- **Read Board**: new button reads the configuration stored in the board's EEPROM back into the UI — useful for verifying board state or migrating a config to another machine.
+- **JSON settings file**: `saved_settings.json` replaces the old line-indexed plain-text format; human-readable, directly editable, and keyed by field name rather than line position.
+- **CLI tool** (`si5351_cli.py`): transfer a full config or modify a single channel from the command line, with `--permanent` to write changes back to the settings file.
+- **Arduino sketch**: all comments translated to English; `?` command added for EEPROM read-back; baud rate updated to 2400.
 
 ---
 
